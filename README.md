@@ -21,12 +21,12 @@ has_many :purchases
 | Column            | Type      | Option                         |
 | ----------------- | ------    | ------------------------------ |
 | name              | string    | null: false                    |
-| content           | string    | null: false                    |
-| category_id       | string    | null: false                    |
-| status_id         | string    | null: false                    |
-| shippingPayer_id | string    | null: false                    |
-| area_id           | string    | null: false                    |
-| deliveryDays_id  | string    | null: false                    |
+| content           | text      | null: false                    |
+| category_id       | integer   | null: false                    |
+| status_id         | integer   | null: false                    |
+| shippingPayer_id  | integer   | null: false                    |
+| area_id           | integer   | null: false                    |
+| deliveryDays_id  | integer   | null: false                    |
 | price             | date      | null: false                    |
 | user              |references | null: false, foreign_key: true |
 
