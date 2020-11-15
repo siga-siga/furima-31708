@@ -2,15 +2,15 @@
 
 ## Usersテーブル
 
-| Column         | Type   | Option      |
-| -------------- | ------ | ----------- |
-| nickname       | string | null: false |
-| email          | string | null: false |
-| lastName       | string | null: false |
-| firstName      | string | null: false |
-| lastName_kana  | string | null: false |
-| firstName_kana | string | null: false |
-| birthday       | date   | null: false |
+| Column          | Type   | Option      |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
 
 Association
 has_many :items
