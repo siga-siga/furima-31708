@@ -1,24 +1,63 @@
-# README
+# Furima-31708 DB設計図
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usersテーブル
 
-Things you may want to cover:
+| Column         | Type   | Option      |
+| -------------- | ------ | ----------- |
+| nickname       | string | null: false |
+| email          | string | null: false |
+| password       | string | null: false |
+| lastName       | string | null: false |
+| firstName      | string | null: false |
+| lastName_kana  | string | null: false |
+| firstName_kana | string | null: false |
+| birthday       | date   | null: false |
 
-* Ruby version
+Association
+has_many :items
+has_many :purchases
 
-* System dependencies
+## Itemsテーブル 
 
-* Configuration
+| Column            | Type      | Option                         |
+| ----------------- | ------    | ------------------------------ |
+| name              | string    | null: false                    |
+| content           | string    | null: false                    |
+| category_id       | string    | null: false                    |
+| status_id         | string    | null: false                    |
+| shippingPayer_id | string    | null: false                    |
+| area_id           | string    | null: false                    |
+| deliveryDays_id  | string    | null: false                    |
+| price             | date      | null: false                    |
+| user              |references | null: false, foreign_key: true |
 
-* Database creation
+Association
+belongs_to :user
+has_one :purchase
 
-* Database initialization
+## Purchasesテーブル
 
-* How to run the test suite
+| Column | Type      | Option                         |
+| ------ | --------- | ------------------------------ |
+| item   |references | null: false, foreign_key: true |
+| user   |references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+Association
+belongs_to :user
+belongs_to :item
+has_one :address
 
-* Deployment instructions
+## Addressesテーブル
 
-* ...
+| Column           | Type      | Option                         |
+| ---------------- | ------    | ------------------------------ |
+| postalCode      | string    | null: false                    |
+| prefectures_id   | integer   | null: false                    |
+| city             | string    | null: false                    |
+| block            | string    | null: false                    |
+| building         | string    |                                |
+| phone            | string    | null: false                    |
+| purchase         |references | null: false, foreign_key: true |
+
+Association
+belongs_to :purchase
