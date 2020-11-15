@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-11-15T12:45:44.193Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="pjfqdkfBCLEyuECHtmUn" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-15T13:48:59.481Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="jGxc8pc6syKVt9oR6cAM" version="13.6.5">
     <diagram id="Nked4dB7jRQ8hgOpI80G" name="ページ1">
         <mxGraphModel dx="656" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -13,7 +13,7 @@
                 <mxCell id="8" value="Items" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=1;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="520" y="40" width="160" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="+name&#10;+content&#10;+category_id&#10;+status_id&#10;+shipping_payer_id&#10;+prefecture_id&#10;+delivary_days_id&#10;+price&#10;+user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="8" vertex="1">
+                <mxCell id="9" value="+name&#10;+content&#10;+category_id&#10;+status_id&#10;+shipping_payer_id&#10;+prefecture_id&#10;+delivary_day_id&#10;+price&#10;+user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="8" vertex="1">
                     <mxGeometry y="30" width="160" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" parent="1" edge="1">
