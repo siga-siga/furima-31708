@@ -19,12 +19,6 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
 
-      it 'nicknameが40文字以上である場合登録できない' do
-        @user.nickname = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is too long (maximum is 40 characters)")
-      end
-
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
