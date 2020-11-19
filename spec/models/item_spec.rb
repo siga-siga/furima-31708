@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品機能' do
     context '商品出品が成功する場合' do
-      it 'nameとcontent、category_id、status_id、shipping_payer_id、prefecture_id、delivery_day_id、priceが存在すると出品できる' do
+      it 'nameとcontent、category_id、status_id、shipping_payer_id、prefecture_id、delivery_day_id、price、imageが存在すると出品できる' do
         expect(@item).to be_valid
       end
     end
