@@ -7,7 +7,7 @@ RSpec.describe PurchaseForm, type: :model do
 
   describe '商品購入機能' do
     context '商品購入が成功する場合' do
-      it 'postal_codeとprefecture_id、city、block、building、phoneが存在すると購入できる' do
+      it 'postal_codeとprefecture_id、city、block、building、phone、tokenが存在すると購入できる' do
         expect(@purchase_form).to be_valid
       end
 
@@ -83,6 +83,12 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.user_id = ''
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'tokenが空では購入できない' do
+        @purchase_form.token = ''
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
