@@ -33,10 +33,6 @@
   object-fit: contain;
 }
 
-.sold-out {
-  display: none;
-}
-
 .item-price-box {
   margin: 25px 0px;
   display: flex;
