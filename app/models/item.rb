@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images #複数枚投稿のため修正
   has_one :purchase
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   validates :shipping_payer_id
   validates :prefecture_id
   validates :delivery_day_id
-  validates :image
+  validates :images, length: { maximum: 5 } #複数枚投稿のため修正
   end
 
   validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}

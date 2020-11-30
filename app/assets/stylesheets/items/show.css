@@ -204,3 +204,9 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.item-mini-images {
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+}
