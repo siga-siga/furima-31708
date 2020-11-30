@@ -7,7 +7,13 @@
       <%= @item.name %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
+      <%= image_tag @item.images[0], class:'item-box-img'%>
+      <div id='item-mini-images' >
+      <% @item.images[1..4].each do |image| %>
+        <%= image_tag image, class:'item-mini-images'%>
+      <% end %>
+      </div>
+
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <% if @item.purchase.present? %>
       <div class='sold-out'>
