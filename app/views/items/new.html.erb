@@ -21,12 +21,9 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
+        <%= f.file_field :images, name: 'items_tag[images][]', id:"item-image" %>
           <div id="image-list">
             <div class='item_image'>
-              <% @item.images.each do |image| %>
-                <%= image_tag image, class:'item_box_img'%>
-              <% end %>
             </div>
           </div>
       </div>
@@ -39,6 +36,11 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="tag-field", id='tag-field'>
+        <%= f.label :word, "タグ" %>
+        <%= f.text_field :word, class:"input-tag", placeholder:"好きな言葉でタグ付けしてください（例：#本）" %>
+      </div>
+      <div id="search-result"></div>
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明

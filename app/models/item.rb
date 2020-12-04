@@ -2,6 +2,10 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many_attached :images #複数枚投稿のため修正
   has_one :purchase
+  has_many :item_tag_relations
+  has_many :tags, through: :item_tag_relations, dependent: :destroy
+  belongs_to :item_category
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category

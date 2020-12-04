@@ -250,6 +250,17 @@ a {
   background-color: #FFF;
 }
 
+.tag{
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+
+.tag-list{
+  margin-bottom: 10px;
+}
 
 .item-img-content {
   position: relative;
@@ -274,7 +285,6 @@ a {
   font-size: 45px;
   font: bold;
 }
-
 
 .item-info {
   background-color: #FFF;
