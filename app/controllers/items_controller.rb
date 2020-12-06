@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
   def create
     #@item = Item.new(item_params)
     @item = ItemsTag.new(item_params)
-    if @item.save
+    if @item.valid?
+      @item.save
       @items = Item.all.order(updated_at: :desc).limit(1)
       redirect_to item_path(@items.ids)
     else
@@ -27,14 +28,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item_tag = ItemsTag.new
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to item_path
+    @item_tag = ItemsTag.new(tag_params)
+    if @item_tag.valid?
+      @item_tag.update
+      redirect_to root_path
     else
       render :edit
     end
@@ -59,6 +63,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:items_tag).permit(:name, :content, :category_id, :status_id, :shipping_payer_id, :prefecture_id, :delivery_day_id, :price, :word, images: []).merge(user_id: current_user.id)
+  end
+
+  def tag_params
+    params.require(:item).permit(:name, :content, :category_id, :status_id, :shipping_payer_id, :prefecture_id, :delivery_day_id, :price, :word, images: []).merge(user_id: current_user.id,item_id: params[:id])
   end
 
   def set_item

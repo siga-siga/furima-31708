@@ -27,3 +27,16 @@ ja:
         block: 番地
         token: カード情報
         phone: 電話番号 
+
+  activemodel:
+    attributes:
+      items_tag:
+        images: 画像
+        name: 商品名
+        content: 商品の説明
+        category_id: カテゴリー
+        status_id: 商品の状態
+        shipping_payer_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        delivery_day_id: 発送までの日数
+        price: 価格
