@@ -7,10 +7,10 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with model: @item, url: item_path, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: @item_tag %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -23,7 +23,7 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :images, name: 'items_tag[images][]', id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
           <div id="image-list">
           </div>
       </div>
@@ -36,6 +36,12 @@ app/assets/stylesheets/items/new.css %>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="tag-field", id='tag-field'>
+        <%= f.label :word, "タグ" %>
+        <%= f.text_field :word, class:"input-tag", placeholder:"好きな言葉でタグ付けしてください（例：#本）" %>
+      </div>
+      <div id="search-result"></div>
+
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明

@@ -4,8 +4,6 @@ class Item < ApplicationRecord
   has_one :purchase
   has_many :item_tag_relations
   has_many :tags, through: :item_tag_relations, dependent: :destroy
-  belongs_to :item_category
-
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category

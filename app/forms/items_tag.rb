@@ -3,7 +3,6 @@ class ItemsTag
   attr_accessor :item_id, :tag_id, :word, :name, :content, :category_id, :status_id, :shipping_payer_id, :prefecture_id, :delivery_day_id, :price, :images, :user_id
 
   with_options presence: true do
-    validates :word
     validates :name
     validates :content
     validates :category_id
@@ -19,11 +18,18 @@ class ItemsTag
     validates :category_id, :status_id, :shipping_payer_id, :prefecture_id, :delivery_day_id, numericality: { other_than: 1 } 
 
   def save
-    #binding.pry
     item = Item.create(name: name, content: content, category_id: category_id, images: images, status_id: status_id, shipping_payer_id: shipping_payer_id, prefecture_id: prefecture_id, delivery_day_id: delivery_day_id, price: price, user_id: user_id)
     tag = Tag.where(word: word).first_or_initialize
     tag.save
 
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
+  end
+
+  def update
+    item = Item.find_by(id: item_id) 
+    item.update(name: name, content: content, category_id: category_id, images: images, status_id: status_id, shipping_payer_id: shipping_payer_id, prefecture_id: prefecture_id, delivery_day_id: delivery_day_id, price: price, user_id: user_id, id: item_id)
+    tag = Tag.where(word: word).first_or_create
+    item.tags.clear
+    item.tags << tag
   end
 end 
